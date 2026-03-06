@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       FILE: saved.html
+       PURPOSE: "My List" — shows hackathons the user has saved
+                to localStorage. Each card has a Remove button.
+                Shows a friendly empty state if nothing is saved.
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Saved Hackathons — OpportuNet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR — "My List" is active
+       ============================================================ -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">⚡</span>OpportuNet
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hackathons.html">Hackathons</a></li>
+        <li><a href="opensource.html">Open Source</a></li>
+        <li>
+          <a href="saved.html" class="active">
+            🔖 My List
+            <span class="nav-badge" id="savedBadge">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       PAGE HERO
+       ============================================================ -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero__title">
+        My <span class="gradient-text">Saved List</span>
+      </h1>
+      <p class="page-hero__subtitle">
+        Hackathons you've bookmarked. Stored locally in your browser —
+        no account needed. Remove any time.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       MAIN: Saved Cards + Empty State
+       JS reads localStorage and renders cards into #savedGrid.
+       If nothing is saved, #emptyState is shown instead.
+       ============================================================ -->
+  <main class="container saved-main">
+
+    <!--
+      Empty state — visible by default when there's nothing saved.
+      JS hides this as soon as it finds saved items.
+    -->
+    <div class="empty-state" id="emptyState">
+      <div class="empty-state__icon">📭</div>
+      <h2 class="empty-state__title">Nothing saved yet</h2>
+      <p class="empty-state__text">
+        You haven't saved any hackathons yet.<br />Go explore and click
+        "🔖 Save" on the ones that interest you!
+      </p>
+      <a href="hackathons.html" class="btn btn--primary">Browse Hackathons →</a>
+    </div>
+
+    <!--
+      Cards injected here by JS.
+      Each card has a "🗑 Remove" button that deletes from localStorage
+      and re-renders the list in real time.
+    -->
+    <div class="cards-grid" id="savedGrid"></div>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <span class="logo-icon">⚡</span>OpportuNet
+          </a>
+          <p class="footer-tagline">
+            Connecting CS students to the opportunities that shape careers.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hackathons.html">Hackathons</a></li>
+            <li><a href="opensource.html">Open Source</a></li>
+            <li><a href="saved.html">My List</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Platforms</h4>
+          <ul>
+            <li><a href="https://devfolio.co" target="_blank">Devfolio</a></li>
+            <li><a href="https://unstop.com" target="_blank">Unstop</a></li>
+            <li><a href="https://mlh.io" target="_blank">MLH</a></li>
+            <li><a href="https://github.com" target="_blank">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Built with ❤️ as a field project · BSc CS · NEP Batch 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
