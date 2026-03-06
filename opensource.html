@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       FILE: opensource.html
+       PURPOSE: Fetches live beginner-friendly repos from the
+                GitHub public API (no API key required).
+                Filters by programming language.
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open Source — OpportuNet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR — "Open Source" is active
+       ============================================================ -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">⚡</span>OpportuNet
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hackathons.html">Hackathons</a></li>
+        <li><a href="opensource.html" class="active">Open Source</a></li>
+        <li>
+          <a href="saved.html">
+            🔖 My List
+            <span class="nav-badge" id="savedBadge">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       PAGE HERO
+       ============================================================ -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero__title">
+        Open Source for <span class="gradient-text">Beginners</span>
+      </h1>
+      <p class="page-hero__subtitle">
+        Live data from the GitHub API — repos tagged with
+        <strong>good-first-issue</strong>, sorted by stars.
+        Filter by your preferred language and start contributing today.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       MAIN: Language filter + Spinner + Cards
+       ============================================================ -->
+  <main class="container oss-main">
+
+    <!-- Language filter buttons -->
+    <div class="controls">
+      <div class="filters" id="ossFilters">
+        <button class="filter-btn active" data-lang="All">All Languages</button>
+        <button class="filter-btn" data-lang="Python">Python</button>
+        <button class="filter-btn" data-lang="JavaScript">JavaScript</button>
+        <button class="filter-btn" data-lang="Java">Java</button>
+        <button class="filter-btn" data-lang="C++">C++</button>
+        <button class="filter-btn" data-lang="TypeScript">TypeScript</button>
+      </div>
+    </div>
+
+    <!--
+      Loading spinner — CSS animates it; JS shows/hides it.
+      Cards and messages are injected into #ossGrid by main.js.
+    -->
+    <div class="spinner" id="ossSpinner"></div>
+
+    <div class="cards-grid" id="ossGrid">
+
+      <!-- Error state — shown if GitHub API call fails -->
+      <div class="api-error" id="ossError">
+        <span>⚠️</span>
+        Could not connect to GitHub API. Check your internet connection and try again.
+      </div>
+
+      <!-- No results — shown if API returns 0 repos for a language -->
+      <div class="no-results" id="ossNoResults">
+        <span>🔍</span>
+        No repositories found for this language filter. Try a different one.
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <span class="logo-icon">⚡</span>OpportuNet
+          </a>
+          <p class="footer-tagline">
+            Connecting CS students to the opportunities that shape careers.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hackathons.html">Hackathons</a></li>
+            <li><a href="opensource.html">Open Source</a></li>
+            <li><a href="saved.html">My List</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Platforms</h4>
+          <ul>
+            <li><a href="https://devfolio.co" target="_blank">Devfolio</a></li>
+            <li><a href="https://unstop.com" target="_blank">Unstop</a></li>
+            <li><a href="https://mlh.io" target="_blank">MLH</a></li>
+            <li><a href="https://github.com" target="_blank">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Built with ❤️ as a field project · BSc CS · NEP Batch 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

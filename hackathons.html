@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       FILE: hackathons.html
+       PURPOSE: Lists all 42 hackathons from hackathons.json.
+                Real-time search + tag filter + save to My List.
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hackathons & Events — OpportuNet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- EmailJS needed on all pages for badge + shared main.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR — "Hackathons" is active
+       ============================================================ -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">⚡</span>OpportuNet
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hackathons.html" class="active">Hackathons</a></li>
+        <li><a href="opensource.html">Open Source</a></li>
+        <li>
+          <a href="saved.html">
+            🔖 My List
+            <span class="nav-badge" id="savedBadge">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       PAGE HERO
+       ============================================================ -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero__title">
+        Hackathons & <span class="gradient-text">Events</span>
+      </h1>
+      <p class="page-hero__subtitle">
+        42 curated hackathons from Devfolio, MLH, Unstop, Devpost, IEEE,
+        ACM, Google, Microsoft & more. Save the ones you like.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       MAIN: Search + Filter + Cards
+       ============================================================ -->
+  <main class="container hack-main">
+
+    <div class="controls">
+      <!-- Real-time search — JS listens on keyup -->
+      <input
+        type="text"
+        id="hackSearch"
+        class="search-bar"
+        placeholder="🔍  Search hackathons by name or platform..."
+        autocomplete="off"
+      />
+
+      <!-- Tag filters — JS listens via event delegation on #hackFilters -->
+      <div class="filters" id="hackFilters">
+        <button class="filter-btn active" data-tag="All">All</button>
+        <button class="filter-btn" data-tag="ML">ML</button>
+        <button class="filter-btn" data-tag="Web">Web</button>
+        <button class="filter-btn" data-tag="Cybersecurity">Cybersecurity</button>
+        <button class="filter-btn" data-tag="General">General</button>
+        <button class="filter-btn" data-tag="Mobile">Mobile</button>
+      </div>
+    </div>
+
+    <!--
+      Cards are injected here by main.js after fetching hackathons.json.
+      The loading text and no-results message are static elements;
+      JS shows/hides them as needed.
+    -->
+    <div class="cards-grid" id="hackGrid">
+      <p class="loading-text" id="hackLoading">Loading hackathons...</p>
+      <div class="no-results" id="hackNoResults">
+        <span>😕</span>
+        No hackathons match your search. Try a different keyword or filter.
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <span class="logo-icon">⚡</span>OpportuNet
+          </a>
+          <p class="footer-tagline">
+            Connecting CS students to the opportunities that shape careers.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hackathons.html">Hackathons</a></li>
+            <li><a href="opensource.html">Open Source</a></li>
+            <li><a href="saved.html">My List</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Platforms</h4>
+          <ul>
+            <li><a href="https://devfolio.co" target="_blank">Devfolio</a></li>
+            <li><a href="https://unstop.com" target="_blank">Unstop</a></li>
+            <li><a href="https://mlh.io" target="_blank">MLH</a></li>
+            <li><a href="https://github.com" target="_blank">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Built with ❤️ as a field project · BSc CS · NEP Batch 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
