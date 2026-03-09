@@ -23,9 +23,9 @@
    4. Copy the Template ID and your Public Key from the dashboard
    5. Paste them into the three constants below
    ============================================================== */
-const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";   /* e.g. "service_abc123" */
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";  /* e.g. "template_xyz789" */
-const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";   /* e.g. "user_XXXXXXXX"  */
+const EMAILJS_SERVICE_ID  = "service_2znrjll";   /* e.g. "service_abc123" */
+const EMAILJS_TEMPLATE_ID = "template_2wdbmsi";  /* e.g. "template_xyz789" */
+const EMAILJS_PUBLIC_KEY  = "lg8ZguQetppgRj_pY";   /* e.g. "user_XXXXXXXX"  */
 
 
 /* ==============================================================
