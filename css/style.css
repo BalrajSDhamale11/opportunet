@@ -904,6 +904,7 @@ img  { max-width: 100%; display: block; }
   text-align: center;
   padding: 0.65rem 1rem;
   font-size: 0.88rem;
+  margin-top: auto;
 }
 
 /* ---- SAVE BUTTON ----
