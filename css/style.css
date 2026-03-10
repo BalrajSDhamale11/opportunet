@@ -1115,3 +1115,20 @@ img  { max-width: 100%; display: block; }
   .card-actions { flex-direction: column; }
   .card-btn, .btn-save { width: 100%; text-align: center; }
 }
+
+/* ==============================================================
+   URGENCY BADGES — hackathon deadline indicator
+   ============================================================== */
+.urgency-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.7rem;
+  border-radius: 50px;
+  width: fit-content;
+}
+
+.urgency--open   { background: #10b98122; color: #10b981; border: 1px solid #10b98133; }
+.urgency--soon   { background: #f59e0b22; color: #f59e0b; border: 1px solid #f59e0b33; }
+.urgency--hot    { background: #ef444422; color: #ef4444; border: 1px solid #ef444433; }
+.urgency--closed { background: #94a3b822; color: #94a3b8; border: 1px solid #94a3b833; }

@@ -53,6 +53,32 @@ if (navToggle && navLinks) {
    Called once on page load and again whenever saves change.
    ============================================================== */
 
+/* ==============================================================
+   URGENCY BADGE
+   Calculates days left from a date string and returns
+   a badge HTML string with appropriate color.
+   ============================================================== */
+function getUrgencyBadge(dateStr) {
+  /* Extract last date from range e.g. "March 20–21, 2026" → "March 21, 2026" */
+  const cleaned = dateStr
+    .replace(/–\d+/, match => match.replace('–', ' '))
+    .replace(/(\w+ )(\d+)\s(\d{4})/, '$1$2, $3');
+
+  const eventDate = new Date(cleaned);
+  if (isNaN(eventDate)) return '';
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  eventDate.setHours(0, 0, 0, 0);
+
+  const daysLeft = Math.ceil((eventDate - today) / (1000 * 60 * 60 * 24));
+
+  if (daysLeft < 0)  return `<span class="urgency-badge urgency--closed">⚫ Closed</span>`;
+  if (daysLeft <= 3) return `<span class="urgency-badge urgency--hot">🔴 ${daysLeft}d left</span>`;
+  if (daysLeft <= 7) return `<span class="urgency-badge urgency--soon">🟡 ${daysLeft}d left</span>`;
+  return `<span class="urgency-badge urgency--open">🟢 Open</span>`;
+}
+
 /**
  * Returns the array of saved hackathon objects from localStorage.
  * If nothing is saved yet, returns an empty array.
@@ -160,6 +186,7 @@ if (hackGrid) {
             <span class="card-prize">🏆 ${hack.prize}</span>
           </div>
           <h3 class="card-title">${hack.name}</h3>
+          ${getUrgencyBadge(hack.date)}
           <p class="card-date">📅 ${hack.date}</p>
           <p class="card-desc">${hack.description}</p>
           <div class="card-tags">
