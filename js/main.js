@@ -58,13 +58,9 @@ if (navToggle && navLinks) {
    Calculates days left from a date string and returns
    a badge HTML string with appropriate color.
    ============================================================== */
-function getUrgencyBadge(dateStr) {
-  /* Extract last date from range e.g. "March 20–21, 2026" → "March 21, 2026" */
-  const cleaned = dateStr
-    .replace(/–\d+/, match => match.replace('–', ' '))
-    .replace(/(\w+ )(\d+)\s(\d{4})/, '$1$2, $3');
-
-  const eventDate = new Date(cleaned);
+function getUrgencyBadge(deadline) {
+  if (!deadline) return '';
+  const eventDate = new Date(deadline);
   if (isNaN(eventDate)) return '';
 
   const today = new Date();
