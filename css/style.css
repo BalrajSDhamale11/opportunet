@@ -973,6 +973,7 @@ img  { max-width: 100%; display: block; }
   font-size: 0.9rem;
   color: var(--subtext);
   line-height: 1.7;
+  flex-grow: 1;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical; /* stylelint-disable-line */

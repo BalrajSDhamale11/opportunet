@@ -326,12 +326,16 @@ if (ossGrid) {
   /* ----------------------------------------------------------
      5b. Render repo cards into #ossGrid
      ---------------------------------------------------------- */
-  function renderRepos(list) {
-    ossNoResults.style.display = list.length === 0 ? 'block' : 'none';
+function renderRepos(list) {
+    const clean = list.filter(repo => {
+      const desc = repo.description || '';
+      return !desc.includes('{%') && !desc.includes('<%') && !desc.includes('Skip to content');
+    });
+    ossNoResults.style.display = clean.length === 0 ? 'block' : 'none';
     removeOssCards();
-    if (list.length === 0) return;
+    if (clean.length === 0) return;
 
-    const html = list.map(repo => `
+    const html = clean.map(repo => `
       <div class="card">
         <p class="card-owner">👤 ${repo.owner.login}</p>
         <h3 class="card-repo-name">${repo.name}</h3>
