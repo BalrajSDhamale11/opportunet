@@ -754,6 +754,7 @@ img  { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
+  align-items: stretch;
 }
 
 /* "No results" */
@@ -796,6 +797,7 @@ img  { max-width: 100%; display: block; }
   flex-direction: column;
   gap: 0.7rem;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  height: 100%;
 }
 
 .card:hover {
