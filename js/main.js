@@ -294,7 +294,7 @@ if (ossGrid) {
     removeOssCards();
 
     /* Build the query: always search for good-first-issue repos */
-    let query = 'label:"good first issue" state:open';
+    let query = 'label:"good-first-issue';
     if (language !== 'All') {
       query += ` language:${language}`;
     }
