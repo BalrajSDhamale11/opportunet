@@ -551,3 +551,14 @@ function formatNumber(num) {
   if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
   return num.toString();
 }
+
+/* ==============================================================
+   SECTION 8: DYNAMIC FOOTER YEAR
+   Updates the year in footer automatically every year.
+   ============================================================== */
+document.querySelectorAll('.footer-bottom p').forEach(el => {
+  el.innerHTML = el.innerHTML.replace(
+    '2026',
+    new Date().getFullYear()
+  );
+});
