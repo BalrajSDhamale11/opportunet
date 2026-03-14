@@ -27,6 +27,13 @@ const EMAILJS_SERVICE_ID  = "service_2znrjll";   /* e.g. "service_abc123" */
 const EMAILJS_TEMPLATE_ID = "template_2wdbmsi";  /* e.g. "template_xyz789" */
 const EMAILJS_PUBLIC_KEY  = "lg8ZguQetppgRj_pY";   /* e.g. "user_XXXXXXXX"  */
 
+/* ==============================================================
+   SUPABASE CONFIGURATION
+   Replace the placeholders with your actual credentials
+   from Supabase Dashboard → Settings → Data API + API Keys
+   ============================================================== */
+const SUPABASE_URL  = "https://iqapuxoiqamhxhymozsh.supabase.co";
+const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlxYXB1eG9pcWFtaHhoeW1venNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0Nzc0MjYsImV4cCI6MjA4OTA1MzQyNn0.vZOMvjollXwE83GdLuJt5CJcOltHqUXHWgdbch-_WOQ";
 
 /* ==============================================================
    SECTION 2: MOBILE NAV TOGGLE
@@ -133,9 +140,18 @@ if (hackGrid) {
   /* ----------------------------------------------------------
      4a. Fetch hackathons.json
      ---------------------------------------------------------- */
-  fetch('data/hackathons.json')
+  /* Supabase credentials */
+const SUPABASE_URL = 'https://iqapuxoiqamhxhymozsh.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlxYXB1eG9pcWFtaHhoeW1venNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0Nzc0MjYsImV4cCI6MjA4OTA1MzQyNn0.vZOMvjollXwE83GdLuJt5CJcOltHqUXHWgdbch-_WOQ';
+
+fetch(`${SUPABASE_URL}/rest/v1/hackathons?select=*&order=regDeadline.asc`, {
+    headers: {
+      'apikey': SUPABASE_KEY,
+      'Authorization': `Bearer ${SUPABASE_KEY}`
+    }
+  })
     .then(res => {
-      if (!res.ok) throw new Error('Could not load hackathons.json');
+      if (!res.ok) throw new Error('Could not load from Supabase');
       return res.json();
     })
     .then(data => {
@@ -146,7 +162,7 @@ if (hackGrid) {
     .catch(err => {
       if (hackLoading) {
         hackLoading.textContent =
-          '⚠️ Could not load hackathons. Make sure Live Server is running.';
+          '⚠️ Could not load hackathons. Please try again later.';
       }
       console.error(err);
     });
