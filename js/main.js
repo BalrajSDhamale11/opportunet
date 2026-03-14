@@ -65,21 +65,26 @@ if (navToggle && navLinks) {
    Calculates days left from a date string and returns
    a badge HTML string with appropriate color.
    ============================================================== */
-function getUrgencyBadge(deadline) {
-  if (!deadline) return '';
-  const eventDate = new Date(deadline);
-  if (isNaN(eventDate)) return '';
+function getUrgencyBadge(regDeadline, eventEnd) {
+  if (!regDeadline || !eventEnd) return '';
 
-  const today = new Date();
+  const today   = new Date();
+  const regDate = new Date(regDeadline);
+  const endDate = new Date(eventEnd);
+
   today.setHours(0, 0, 0, 0);
-  eventDate.setHours(0, 0, 0, 0);
+  regDate.setHours(0, 0, 0, 0);
+  endDate.setHours(0, 0, 0, 0);
 
-  const daysLeft = Math.ceil((eventDate - today) / (1000 * 60 * 60 * 24));
+  const daysToReg = Math.ceil((regDate - today) / (1000 * 60 * 60 * 24));
 
-  if (daysLeft < 0)  return `<span class="urgency-badge urgency--closed">⚫ Closed</span>`;
-  if (daysLeft <= 3) return `<span class="urgency-badge urgency--hot">🔴 ${daysLeft}d left</span>`;
-  if (daysLeft <= 7) return `<span class="urgency-badge urgency--soon">🟡 ${daysLeft}d left</span>`;
-  return `<span class="urgency-badge urgency--open">🟢 Open</span>`;
+  if (today > endDate)
+    return `<span class="urgency-badge urgency--closed">⚫ Event Ended</span>`;
+  if (today > regDate)
+    return `<span class="urgency-badge urgency--soon">🟡 Reg. Closed</span>`;
+  if (daysToReg <= 7)
+    return `<span class="urgency-badge urgency--hot">🔴 Reg. closes in ${daysToReg}d</span>`;
+  return `<span class="urgency-badge urgency--open">🟢 Reg. Open</span>`;
 }
 
 /**
@@ -141,13 +146,10 @@ if (hackGrid) {
      4a. Fetch hackathons.json
      ---------------------------------------------------------- */
   /* Supabase credentials */
-const SUPABASE_URL = 'https://iqapuxoiqamhxhymozsh.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlxYXB1eG9pcWFtaHhoeW1venNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0Nzc0MjYsImV4cCI6MjA4OTA1MzQyNn0.vZOMvjollXwE83GdLuJt5CJcOltHqUXHWgdbch-_WOQ';
-
 fetch(`${SUPABASE_URL}/rest/v1/hackathons?select=*&order=regDeadline.asc`, {
     headers: {
-      'apikey': SUPABASE_KEY,
-      'Authorization': `Bearer ${SUPABASE_KEY}`
+      'apikey': SUPABASE_ANON,
+      'Authorization': `Bearer ${SUPABASE_ANON}`
     }
   })
     .then(res => {
@@ -155,7 +157,11 @@ fetch(`${SUPABASE_URL}/rest/v1/hackathons?select=*&order=regDeadline.asc`, {
       return res.json();
     })
     .then(data => {
-      allHackathons = data;
+      /* Convert tags from "General,Web,ML" string to ["General","Web","ML"] array */
+      allHackathons = data.map(hack => ({
+        ...hack,
+        tags: hack.tags ? hack.tags.split(',').map(t => t.trim()) : []
+      }));
       if (hackLoading) hackLoading.remove();
       renderHackathons(allHackathons);
     })
@@ -198,8 +204,8 @@ fetch(`${SUPABASE_URL}/rest/v1/hackathons?select=*&order=regDeadline.asc`, {
             <span class="card-prize">🏆 ${hack.prize}</span>
           </div>
           <h3 class="card-title">${hack.name}</h3>
-          ${getUrgencyBadge(hack.deadline)}
-          <p class="card-date">📅 ${hack.deadline}</p>
+         ${getUrgencyBadge(hack.regDeadline, hack.eventEnd)}
+          <p class="card-date">📅 ${hack.date}</p>
           <p class="card-desc">${hack.description}</p>
           <div class="card-tags">
             ${hack.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
