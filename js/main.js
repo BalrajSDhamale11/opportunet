@@ -182,8 +182,8 @@ if (hackGrid) {
             <span class="card-prize">🏆 ${hack.prize}</span>
           </div>
           <h3 class="card-title">${hack.name}</h3>
-          ${getUrgencyBadge(hack.date)}
-          <p class="card-date">📅 ${hack.date}</p>
+          ${getUrgencyBadge(hack.deadline)}
+          <p class="card-date">📅 ${hack.deadline}</p>
           <p class="card-desc">${hack.description}</p>
           <div class="card-tags">
             ${hack.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
