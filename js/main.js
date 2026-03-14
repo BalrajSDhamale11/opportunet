@@ -34,7 +34,8 @@ const EMAILJS_PUBLIC_KEY  = "lg8ZguQetppgRj_pY";   /* e.g. "user_XXXXXXXX"  */
    ============================================================== */
 const SUPABASE_URL  = "https://iqapuxoiqamhxhymozsh.supabase.co";
 const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlxYXB1eG9pcWFtaHhoeW1venNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0Nzc0MjYsImV4cCI6MjA4OTA1MzQyNn0.vZOMvjollXwE83GdLuJt5CJcOltHqUXHWgdbch-_WOQ";
-
+/* Set to true to force JSON, false to use Supabase */
+const USE_JSON_FALLBACK = false;
 /* ==============================================================
    SECTION 2: MOBILE NAV TOGGLE
    ============================================================== */
@@ -146,33 +147,84 @@ if (hackGrid) {
      4a. Fetch hackathons.json
      ---------------------------------------------------------- */
   /* Supabase credentials */
-fetch(`${SUPABASE_URL}/rest/v1/hackathons?select=*&order=regDeadline.asc`, {
-    headers: {
-      'apikey': SUPABASE_ANON,
-      'Authorization': `Bearer ${SUPABASE_ANON}`
-    }
-  })
-    .then(res => {
-      if (!res.ok) throw new Error('Could not load from Supabase');
-      return res.json();
-    })
-    .then(data => {
-      /* Convert tags from "General,Web,ML" string to ["General","Web","ML"] array */
-      allHackathons = data.map(hack => ({
-        ...hack,
-        tags: hack.tags ? hack.tags.split(',').map(t => t.trim()) : []
-      }));
-      if (hackLoading) hackLoading.remove();
-      renderHackathons(allHackathons);
-    })
-    .catch(err => {
-      if (hackLoading) {
-        hackLoading.textContent =
-          '⚠️ Could not load hackathons. Please try again later.';
-      }
-      console.error(err);
-    });
+/* ----------------------------------------------------------
+     Helper: normalize hackathon data from either source.
+     Supabase returns tags as "General,Web,ML" string.
+     JSON file returns tags as ["General","Web","ML"] array.
+     This function handles both formats.
+     ---------------------------------------------------------- */
+  function normalizeHackathons(data, fromSupabase) {
+    return data.map(hack => ({
+      ...hack,
+      tags: fromSupabase
+        ? (hack.tags ? hack.tags.split(',').map(t => t.trim()) : [])
+        : (Array.isArray(hack.tags) ? hack.tags : [])
+    }));
+  }
 
+  /* ----------------------------------------------------------
+     Helper: load from local JSON fallback
+     Called when Supabase fails or returns empty data.
+     ---------------------------------------------------------- */
+  function loadFromJSON() {
+    console.warn('Supabase unavailable — falling back to local JSON');
+    fetch('data/hackathons.json')
+      .then(res => {
+        if (!res.ok) throw new Error('Could not load hackathons.json');
+        return res.json();
+      })
+      .then(data => {
+        allHackathons = normalizeHackathons(data, false);
+        if (hackLoading) hackLoading.remove();
+        renderHackathons(allHackathons);
+      })
+      .catch(err => {
+        if (hackLoading) {
+          hackLoading.textContent =
+            '⚠️ Could not load hackathons. Please try again later.';
+        }
+        console.error('JSON fallback also failed:', err);
+      });
+  }
+
+  
+
+  /* ----------------------------------------------------------
+     4a. Fetch from Supabase with JSON fallback
+     Priority: Supabase → JSON fallback
+     Manual override: set USE_JSON_FALLBACK = true to skip Supabase
+     ---------------------------------------------------------- */
+  if (USE_JSON_FALLBACK) {
+    loadFromJSON();
+  } else {
+    fetch(`${SUPABASE_URL}/rest/v1/hackathons?select=*&order=regDeadline.asc`, {
+      headers: {
+        'apikey': SUPABASE_ANON,
+        'Authorization': `Bearer ${SUPABASE_ANON}`
+      }
+    })
+      .then(res => {
+        if (!res.ok) throw new Error(`Supabase error: ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        /* If Supabase returns empty array → fallback to JSON */
+        if (!data || data.length === 0) {
+          console.warn('Supabase returned empty data — falling back to JSON');
+          loadFromJSON();
+          return;
+        }
+        /* Supabase returned data successfully */
+        allHackathons = normalizeHackathons(data, true);
+        if (hackLoading) hackLoading.remove();
+        renderHackathons(allHackathons);
+      })
+      .catch(err => {
+        /* Supabase completely failed → fallback to JSON */
+        console.error('Supabase fetch failed:', err);
+        loadFromJSON();
+      });
+  }
   /* ----------------------------------------------------------
      4b. Render hackathon cards into #hackGrid
      
