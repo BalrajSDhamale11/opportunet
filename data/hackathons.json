@@ -2,7 +2,8 @@
   {
     "name": "Smart India Hackathon 2026",
     "date": "March 20–21, 2026",
-    "deadline": "2026-03-21",
+    "regDeadline": "2026-03-10",
+    "eventEnd": "2026-03-21",
     "platform": "Unstop",
     "tags": ["General", "Web", "ML"],
     "prize": "₹1,00,000",
@@ -12,7 +13,8 @@
   {
     "name": "HackMIT 2026",
     "date": "April 12–13, 2026",
-    "deadline": "2026-04-13",
+    "regDeadline": "2026-04-01",
+    "eventEnd": "2026-04-13",
     "platform": "Devpost",
     "tags": ["General", "ML", "Web"],
     "prize": "$10,000",
@@ -22,7 +24,8 @@
   {
     "name": "Google Solution Challenge 2026",
     "date": "April 30, 2026",
-    "deadline": "2026-04-30",
+    "regDeadline": "2026-04-20",
+    "eventEnd": "2026-04-30",
     "platform": "Google GDSC",
     "tags": ["General", "ML", "Web"],
     "prize": "$3,000 + Mentorship",
@@ -32,7 +35,8 @@
   {
     "name": "MLH Global Hack Week — AI Edition",
     "date": "May 5–11, 2026",
-    "deadline": "2026-05-11",
+    "regDeadline": "2026-05-04",
+    "eventEnd": "2026-05-11",
     "platform": "MLH",
     "tags": ["ML", "General"],
     "prize": "Swag + Certificates",
@@ -42,7 +46,8 @@
   {
     "name": "Devfolio Hack Summit 2026",
     "date": "May 17–18, 2026",
-    "deadline": "2026-05-18",
+    "regDeadline": "2026-05-10",
+    "eventEnd": "2026-05-18",
     "platform": "Devfolio",
     "tags": ["Web", "General"],
     "prize": "₹50,000",
@@ -52,7 +57,8 @@
   {
     "name": "CyberPatriot National Youth Cyber Defense",
     "date": "June 1–15, 2026",
-    "deadline": "2026-06-15",
+    "regDeadline": "2026-05-20",
+    "eventEnd": "2026-06-15",
     "platform": "HackerEarth",
     "tags": ["Cybersecurity"],
     "prize": "$2,000 Scholarships",
@@ -62,7 +68,8 @@
   {
     "name": "IEEE Xtreme 20.0",
     "date": "June 20, 2026",
-    "deadline": "2026-06-20",
+    "regDeadline": "2026-06-10",
+    "eventEnd": "2026-06-20",
     "platform": "IEEE",
     "tags": ["General", "ML"],
     "prize": "Cash + IEEE Certificates",
@@ -72,7 +79,8 @@
   {
     "name": "HackCBS 9.0",
     "date": "July 5–6, 2026",
-    "deadline": "2026-07-06",
+    "regDeadline": "2026-06-25",
+    "eventEnd": "2026-07-06",
     "platform": "Devfolio",
     "tags": ["Web", "ML", "General"],
     "prize": "₹75,000",
@@ -82,7 +90,8 @@
   {
     "name": "ETHIndia 2026",
     "date": "August 8–10, 2026",
-    "deadline": "2026-08-10",
+    "regDeadline": "2026-07-25",
+    "eventEnd": "2026-08-10",
     "platform": "Devfolio",
     "tags": ["Web", "General"],
     "prize": "$50,000 in Prizes",
@@ -92,7 +101,8 @@
   {
     "name": "Flipkart Grid 8.0",
     "date": "August 20, 2026",
-    "deadline": "2026-08-20",
+    "regDeadline": "2026-08-10",
+    "eventEnd": "2026-08-20",
     "platform": "Unstop",
     "tags": ["ML", "Web", "General"],
     "prize": "PPO + ₹1,00,000",
@@ -102,7 +112,8 @@
   {
     "name": "HackTheBox University CTF 2026",
     "date": "September 12–14, 2026",
-    "deadline": "2026-09-14",
+    "regDeadline": "2026-09-05",
+    "eventEnd": "2026-09-14",
     "platform": "Hack The Box",
     "tags": ["Cybersecurity"],
     "prize": "$5,000 + Pro Lab Access",
@@ -112,7 +123,8 @@
   {
     "name": "Flutter Puzzle Hack 2026",
     "date": "October 3–17, 2026",
-    "deadline": "2026-10-17",
+    "regDeadline": "2026-09-25",
+    "eventEnd": "2026-10-17",
     "platform": "Devpost",
     "tags": ["Mobile", "Web"],
     "prize": "$20,000",
@@ -122,7 +134,8 @@
   {
     "name": "Microsoft Imagine Cup 2026",
     "date": "April 1–June 30, 2026",
-    "deadline": "2026-06-30",
+    "regDeadline": "2026-04-15",
+    "eventEnd": "2026-06-30",
     "platform": "Microsoft",
     "tags": ["ML", "General", "Web"],
     "prize": "$100,000 + Azure Credits",
@@ -132,7 +145,8 @@
   {
     "name": "Amazon ML Challenge 2026",
     "date": "April 10–May 10, 2026",
-    "deadline": "2026-05-10",
+    "regDeadline": "2026-04-10",
+    "eventEnd": "2026-05-10",
     "platform": "HackerEarth",
     "tags": ["ML"],
     "prize": "₹5,00,000 + PPO",
@@ -142,7 +156,8 @@
   {
     "name": "ACM ICPC Asia Regional 2026",
     "date": "September 20–22, 2026",
-    "deadline": "2026-09-22",
+    "regDeadline": "2026-09-10",
+    "eventEnd": "2026-09-22",
     "platform": "ACM / Unstop",
     "tags": ["General"],
     "prize": "Gold Medals + Scholarships",
@@ -152,7 +167,8 @@
   {
     "name": "TreeHacks 2026",
     "date": "March 28–30, 2026",
-    "deadline": "2026-03-30",
+    "regDeadline": "2026-03-20",
+    "eventEnd": "2026-03-30",
     "platform": "MLH / Devpost",
     "tags": ["General", "ML", "Web"],
     "prize": "$15,000",
@@ -162,7 +178,8 @@
   {
     "name": "HackGT 12",
     "date": "October 17–19, 2026",
-    "deadline": "2026-10-19",
+    "regDeadline": "2026-10-10",
+    "eventEnd": "2026-10-19",
     "platform": "Georgia Tech / Devpost",
     "tags": ["General", "Web", "ML"],
     "prize": "$12,000",
@@ -172,7 +189,8 @@
   {
     "name": "PennApps XXV",
     "date": "September 5–7, 2026",
-    "deadline": "2026-09-07",
+    "regDeadline": "2026-08-25",
+    "eventEnd": "2026-09-07",
     "platform": "UPenn / Devpost",
     "tags": ["General", "Web", "ML"],
     "prize": "$10,000",
@@ -182,7 +200,8 @@
   {
     "name": "HackNYU 2026",
     "date": "March 14–15, 2026",
-    "deadline": "2026-03-15",
+    "regDeadline": "2026-03-10",
+    "eventEnd": "2026-03-15",
     "platform": "NYU / Devpost",
     "tags": ["General", "Web", "Mobile"],
     "prize": "$8,000",
@@ -192,7 +211,8 @@
   {
     "name": "TCS CodeVita Season 13",
     "date": "May 1–31, 2026",
-    "deadline": "2026-05-31",
+    "regDeadline": "2026-04-25",
+    "eventEnd": "2026-05-31",
     "platform": "TCS / HackerEarth",
     "tags": ["General"],
     "prize": "₹3,00,000 + TCS PPO",
@@ -202,7 +222,8 @@
   {
     "name": "HackerEarth AI/ML Hackathon",
     "date": "April 20–May 20, 2026",
-    "deadline": "2026-05-20",
+    "regDeadline": "2026-04-20",
+    "eventEnd": "2026-05-20",
     "platform": "HackerEarth",
     "tags": ["ML"],
     "prize": "$3,000",
@@ -212,7 +233,8 @@
   {
     "name": "NASA Space Apps Challenge 2026",
     "date": "October 3–5, 2026",
-    "deadline": "2026-10-05",
+    "regDeadline": "2026-09-25",
+    "eventEnd": "2026-10-05",
     "platform": "NASA / Devpost",
     "tags": ["General", "ML", "Web"],
     "prize": "NASA Recognition + Merchandise",
@@ -222,7 +244,8 @@
   {
     "name": "AngelHack Global Hackathon Series 2026",
     "date": "June 14–15, 2026",
-    "deadline": "2026-06-15",
+    "regDeadline": "2026-06-07",
+    "eventEnd": "2026-06-15",
     "platform": "AngelHack / Devpost",
     "tags": ["Web", "Mobile", "General"],
     "prize": "$25,000",
@@ -232,7 +255,8 @@
   {
     "name": "Meta Hacker Cup 2026",
     "date": "August 1–October 31, 2026",
-    "deadline": "2026-10-31",
+    "regDeadline": "2026-08-01",
+    "eventEnd": "2026-10-31",
     "platform": "Meta",
     "tags": ["General"],
     "prize": "$20,000",
@@ -242,7 +266,8 @@
   {
     "name": "HackUPC 2026",
     "date": "May 9–11, 2026",
-    "deadline": "2026-05-11",
+    "regDeadline": "2026-05-01",
+    "eventEnd": "2026-05-11",
     "platform": "UPC Barcelona / Devpost",
     "tags": ["General", "Web", "ML"],
     "prize": "€5,000",
@@ -252,7 +277,8 @@
   {
     "name": "Junction 2026",
     "date": "November 7–9, 2026",
-    "deadline": "2026-11-09",
+    "regDeadline": "2026-10-25",
+    "eventEnd": "2026-11-09",
     "platform": "Junction / Devpost",
     "tags": ["General", "Web", "ML", "Mobile"],
     "prize": "€20,000",
@@ -262,7 +288,8 @@
   {
     "name": "MLH Localhost: Cybersecurity",
     "date": "June 6–7, 2026",
-    "deadline": "2026-06-07",
+    "regDeadline": "2026-06-01",
+    "eventEnd": "2026-06-07",
     "platform": "MLH",
     "tags": ["Cybersecurity", "General"],
     "prize": "Certificates + Swag",
@@ -272,7 +299,8 @@
   {
     "name": "Kaggle AI Report Competition 2026",
     "date": "April 5–30, 2026",
-    "deadline": "2026-04-30",
+    "regDeadline": "2026-04-05",
+    "eventEnd": "2026-04-30",
     "platform": "Kaggle",
     "tags": ["ML"],
     "prize": "$50,000",
@@ -282,7 +310,8 @@
   {
     "name": "Infosys Hackathon: InfyTQ 2026",
     "date": "May 25–June 25, 2026",
-    "deadline": "2026-06-25",
+    "regDeadline": "2026-05-20",
+    "eventEnd": "2026-06-25",
     "platform": "Infosys / Unstop",
     "tags": ["General", "Web"],
     "prize": "₹2,00,000 + Internship",
@@ -292,7 +321,8 @@
   {
     "name": "Google Summer of Code 2026",
     "date": "March 24 – August 25, 2026",
-    "deadline": "2026-08-25",
+    "regDeadline": "2026-04-08",
+    "eventEnd": "2026-08-25",
     "platform": "Google",
     "tags": ["General", "Web", "ML"],
     "prize": "$1,500–$6,600 Stipend",
@@ -302,7 +332,8 @@
   {
     "name": "Global Game Jam 2026",
     "date": "July 17–19, 2026",
-    "deadline": "2026-07-19",
+    "regDeadline": "2026-07-10",
+    "eventEnd": "2026-07-19",
     "platform": "GGJ / Devpost",
     "tags": ["General", "Mobile", "Web"],
     "prize": "Recognition + Portfolio",
@@ -312,7 +343,8 @@
   {
     "name": "Capture The Flag — picoCTF 2026",
     "date": "March 15 – April 15, 2026",
-    "deadline": "2026-04-15",
+    "regDeadline": "2026-03-15",
+    "eventEnd": "2026-04-15",
     "platform": "Carnegie Mellon / CTFd",
     "tags": ["Cybersecurity"],
     "prize": "$5,000 + Swag",
@@ -322,7 +354,8 @@
   {
     "name": "Hack The Valley 8",
     "date": "September 27–28, 2026",
-    "deadline": "2026-09-28",
+    "regDeadline": "2026-09-20",
+    "eventEnd": "2026-09-28",
     "platform": "University of Toronto / Devpost",
     "tags": ["General", "ML", "Web"],
     "prize": "$8,000 CAD",
@@ -332,7 +365,8 @@
   {
     "name": "MLH Fellowship Kickoff Hackathon",
     "date": "June 1–3, 2026",
-    "deadline": "2026-06-03",
+    "regDeadline": "2026-05-25",
+    "eventEnd": "2026-06-03",
     "platform": "MLH",
     "tags": ["Web", "General", "ML"],
     "prize": "$5,000 + Fellowship",
@@ -342,7 +376,8 @@
   {
     "name": "HackerEarth Frontend Development Challenge",
     "date": "April 15–May 15, 2026",
-    "deadline": "2026-05-15",
+    "regDeadline": "2026-04-15",
+    "eventEnd": "2026-05-15",
     "platform": "HackerEarth",
     "tags": ["Web"],
     "prize": "$2,000",
@@ -352,7 +387,8 @@
   {
     "name": "ACM-W Celebration of Women in Computing",
     "date": "July 10–12, 2026",
-    "deadline": "2026-07-12",
+    "regDeadline": "2026-07-01",
+    "eventEnd": "2026-07-12",
     "platform": "ACM",
     "tags": ["General", "Web", "ML"],
     "prize": "Scholarships + Recognition",
@@ -362,7 +398,8 @@
   {
     "name": "Hack36 — MNNIT Allahabad",
     "date": "April 18–19, 2026",
-    "deadline": "2026-04-19",
+    "regDeadline": "2026-04-10",
+    "eventEnd": "2026-04-19",
     "platform": "Devfolio",
     "tags": ["General", "ML", "Web"],
     "prize": "₹60,000",
@@ -372,7 +409,8 @@
   {
     "name": "Myntra HackerRamp: WeForShe 2026",
     "date": "May 1–June 30, 2026",
-    "deadline": "2026-06-30",
+    "regDeadline": "2026-04-25",
+    "eventEnd": "2026-06-30",
     "platform": "Unstop",
     "tags": ["ML", "Web", "General"],
     "prize": "₹3,00,000 + Internship",
@@ -382,7 +420,8 @@
   {
     "name": "OpenAI Developer Day Hackathon 2026",
     "date": "June 20–21, 2026",
-    "deadline": "2026-06-21",
+    "regDeadline": "2026-06-13",
+    "eventEnd": "2026-06-21",
     "platform": "Devpost",
     "tags": ["ML", "Web", "General"],
     "prize": "$30,000 + API Credits",
@@ -392,7 +431,8 @@
   {
     "name": "StudentHack IX — Manchester",
     "date": "October 25–26, 2026",
-    "deadline": "2026-10-26",
+    "regDeadline": "2026-10-18",
+    "eventEnd": "2026-10-26",
     "platform": "MLH / Devpost",
     "tags": ["General", "Web", "ML"],
     "prize": "£3,000",
@@ -402,7 +442,8 @@
   {
     "name": "GreatUniHack 2026",
     "date": "November 14–15, 2026",
-    "deadline": "2026-11-15",
+    "regDeadline": "2026-11-07",
+    "eventEnd": "2026-11-15",
     "platform": "MLH / Devpost",
     "tags": ["General", "Web", "Mobile"],
     "prize": "£2,500",
@@ -412,7 +453,8 @@
   {
     "name": "Hack For Good — GitHub & Dev.to",
     "date": "August 15–31, 2026",
-    "deadline": "2026-08-31",
+    "regDeadline": "2026-08-15",
+    "eventEnd": "2026-08-31",
     "platform": "Dev.to / GitHub",
     "tags": ["Web", "General", "ML"],
     "prize": "$10,000 + GitHub Swag",

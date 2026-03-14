@@ -143,9 +143,6 @@ if (hackGrid) {
   let allHackathons = []; /* master list, never mutated after fetch */
   let activeTag = 'All';  /* currently selected tag filter */
 
-  /* ----------------------------------------------------------
-     4a. Fetch hackathons.json
-     ---------------------------------------------------------- */
   /* Supabase credentials */
 /* ----------------------------------------------------------
      Helper: normalize hackathon data from either source.
